@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inventory Tracker Dashboard</title>
+  <link rel="stylesheet" href="dash.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+</head>
+<body>
+  <!-- Sidebar -->
+  <div id="sidebar">
+    <h2>Inventory Tracker</h2>
+    <ul>
+      <li><a href="#dashboard">Dashboard</a></li>
+      <li><a href="index.html">Add Item</a></li>
+      <li><a href="Inventory-view.html">View Inventory</a></li>
+      <li><a href="Analytics.html">Sales Analytics</a></li>
+    </ul>
+    <button id="settingsButton">⚙️ Settings</button>
+    <div id="settingsPanel" style="display: none;">
+      <div id="settings">
+        <h3>Settings</h3>
+        <label for="themeToggle">
+          Dark Mode:
+          <input type="checkbox" id="themeToggle" />
+        </label>
+      </div>
+      
+    </div>
+    
+    <script>
+      document.getElementById('settingsButton').addEventListener('click', () => {
+        const settingsPanel = document.getElementById('settingsPanel');
+        settingsPanel.style.display = settingsPanel.style.display === 'none' ? 'block' : 'none';
+      });
+    </script>
+    
+    
+  </div>
+
+  <!-- Main Content -->
+  <div id="main-content">
+    <h1>Welcome To Your Dashboard</h1>
+    <div id="some-element"></div>
+
+<div>   <!-- Search Bar -->
+<section id="search-section">
+  <input type="text" id="searchInput" placeholder="Search for items..." />
+  <button onclick="searchItems()">Search</button>
+</section>
+
+<!-- Display Search Results -->
+<table id="searchResultsTable">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Category</th>
+      <th>Serial Number</th>
+      <th>Quantity</th>
+      <th>Selling Price</th>
+    </tr>
+  </thead>
+  <tbody id="searchResultsBody"></tbody>
+</table>
+</div>
+
+    <!-- Dashboard Section -->
+    <section id="dashboard">
+      <h3>Dashboard</h3>
+      <p>Overview of inventory and sales trends.</p>
+      <!-- Content for dashboard overview goes here -->
+      <section id="dashboard">
+        <h3>Dashboard Overview</h3>
+        <div id="overview">
+          <div class="metric">
+            <h3>Total Items</h3>
+            <p id="total-items">0</p>
+          </div>
+          <div class="metric">
+            <h3>Total Sales (Past 7 Days)</h3>
+            <p id="sales-7-days">0</p>
+          </div>
+          <div class="metric">
+            <h3>Total Sales (Last 30 Days)</h3>
+            <p id="sales-30-days">0</p>
+          </div>
+          <div class="metric">
+            <h3>Total Products In-Stock</h3>
+            <p id="products-in-stock">0</p>
+          </div>
+        </div>
+      
+        <div id="sales-trend">
+          <h3>Sales Trends (Last 30 Days)</h3>
+          <canvas id="salesTrendChart"></canvas>
+        </div>
+      </section>
+      
+  
+  <section id="product-analysis-section">
+      <h3>Product Analysis</h3>
+      <canvas id="productAnalysisChart" style="width: 50%; height: 50%;"></canvas> <!-- Pie Chart for Product Analysis -->
+  </section>
+  
+  
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="dash.js"></script>
+</body>
+</html>
